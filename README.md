@@ -32,14 +32,4 @@ When it starts, the first song name ("Japan") scrolls on the screen. Press A to 
 
 You can also test it without hardware using the on-screen micro:bit simulator in MakeCode, although the sound and button feel are best on the real device.
 
-Files in this repository
-README.md           This file
-yotclub_player.py   The full program (MakeCode Python), with comments
-How the code works
-songs: a list of dictionaries. Each song has a name and a melody (a list of note strings such as "bb3:0.5", meaning note, octave, and length in beats). Keeping the songs as data means a new song only needs one new dictionary.
-current_track and playing: two variables that act as the program's memory. current_track is which song is selected, and playing is True or False.
-play_current() / stop_playing(): start the selected melody in the background, or stop all sound and reset.
-Button B handler: moves to the next song with (current_track + 1) % len(songs) so it wraps back to the first song after the last. The title scroll runs with control.in_background so button presses are not blocked.
-Button A handler: a simple toggle. If playing, stop. Otherwise, play.
-spin(): runs forever with basic.forever and, only while music is playing, shows the next of eight LED frames to make a dot circle the centre.
 
